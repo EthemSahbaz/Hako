@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35514.174 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8AE6683F-3156-4B80-94F1-487D9CE98EEC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{48967B40-C072-4DFF-A08F-56F55D012231}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hako.AppHost", "src\Hako\Hako.AppHost\Hako.AppHost.csproj", "{C92A070F-E532-4DC7-98F1-FCB49F894EE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hako.ServiceDefaults", "src\Hako\Hako.ServiceDefaults\Hako.ServiceDefaults.csproj", "{609E3C5F-F672-4230-B1EA-5F6ECAEAD127}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hako.ApiService", "src\Hako\Hako.ApiService\Hako.ApiService.csproj", "{F1704C86-6292-443B-8B5B-7AD54A9FDB5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hako.Web", "src\Hako\Hako.Web\Hako.Web.csproj", "{03C85BE8-1DDC-4643-84E6-D3CB3B0D7DB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C92A070F-E532-4DC7-98F1-FCB49F894EE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C92A070F-E532-4DC7-98F1-FCB49F894EE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C92A070F-E532-4DC7-98F1-FCB49F894EE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C92A070F-E532-4DC7-98F1-FCB49F894EE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{609E3C5F-F672-4230-B1EA-5F6ECAEAD127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{609E3C5F-F672-4230-B1EA-5F6ECAEAD127}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{609E3C5F-F672-4230-B1EA-5F6ECAEAD127}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{609E3C5F-F672-4230-B1EA-5F6ECAEAD127}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1704C86-6292-443B-8B5B-7AD54A9FDB5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1704C86-6292-443B-8B5B-7AD54A9FDB5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1704C86-6292-443B-8B5B-7AD54A9FDB5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1704C86-6292-443B-8B5B-7AD54A9FDB5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03C85BE8-1DDC-4643-84E6-D3CB3B0D7DB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03C85BE8-1DDC-4643-84E6-D3CB3B0D7DB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03C85BE8-1DDC-4643-84E6-D3CB3B0D7DB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03C85BE8-1DDC-4643-84E6-D3CB3B0D7DB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C92A070F-E532-4DC7-98F1-FCB49F894EE4} = {8AE6683F-3156-4B80-94F1-487D9CE98EEC}
+		{609E3C5F-F672-4230-B1EA-5F6ECAEAD127} = {8AE6683F-3156-4B80-94F1-487D9CE98EEC}
+		{F1704C86-6292-443B-8B5B-7AD54A9FDB5C} = {8AE6683F-3156-4B80-94F1-487D9CE98EEC}
+		{03C85BE8-1DDC-4643-84E6-D3CB3B0D7DB9} = {8AE6683F-3156-4B80-94F1-487D9CE98EEC}
+	EndGlobalSection
+EndGlobal
