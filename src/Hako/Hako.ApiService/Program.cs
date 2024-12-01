@@ -1,3 +1,5 @@
+using Hako.Application;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add service defaults & Aspire client integrations.
@@ -5,6 +7,7 @@ builder.AddServiceDefaults();
 
 // Add services to the container.
 builder.Services.AddProblemDetails();
+builder.Services.AddApplication();
 
 var app = builder.Build();
 
