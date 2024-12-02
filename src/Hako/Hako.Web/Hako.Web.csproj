@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Hako.Contracts\Hako.Contracts.csproj" />
     <ProjectReference Include="..\Hako.ServiceDefaults\Hako.ServiceDefaults.csproj" />
   </ItemGroup>
 

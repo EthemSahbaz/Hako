@@ -12,7 +12,4 @@
     <ProjectReference Include="..\Hako.ServiceDefaults\Hako.ServiceDefaults.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-  </ItemGroup>
-
 </Project>
