@@ -1,11 +1,33 @@
 ﻿@page "/games"
+@using Hako.Contracts.Responses
 @using Hako.Web.Services
 @rendermode InteractiveServer
 @inject GamesService GamesService
-<h3>Games</h3>
+
+<h3>Games Overview</h3>
+
+<label>Name of the Game</label>
+
+<InputText @bind-value="@GameName"></InputText>
+
+
 
 <button @onclick="ButtonClicked" class="btn btn-primary">Call Games API</button>
 @code {
+    public List<GameResponse> GameResponses { get; set; } = new();
+
+    public string GameName { get; set; } = string.Empty;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var games = await GamesService.GetGames();
+
+        if (games is not null)
+        {
+            GameResponses = games.Items.ToList();
+        }
+        
+    }
 
     public async void ButtonClicked()
     {

@@ -11,10 +11,9 @@ public class GamesService
         _httpClient = httpClient;
     }
 
-    public async Task<IEnumerable<GameResponse>> GetGames()
+    public async Task<GamesResponse?> GetGames()
     {
-        var result = await _httpClient.GetFromJsonAsync<IEnumerable<GameResponse>>("/api/games");
-
+        var result = await _httpClient.GetFromJsonAsync<GamesResponse>("/api/games");
 
         return result;
     }
