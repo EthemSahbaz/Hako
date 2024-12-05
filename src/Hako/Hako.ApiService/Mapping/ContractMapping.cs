@@ -41,6 +41,24 @@ public static class ContractMapping
             Publisher = createRequest.Publisher,
         };
     }
+
+    /// <summary>
+    /// Maps a update request to a game domain model.
+    /// </summary>
+    /// <param name="updateRequest">Update request model.</param>
+    /// <returns>Return a new game instance, mapped from a request.</returns>
+    public static Game MapToGame(this UpdateGameRequest updateRequest, Guid id)
+    {
+        return new Game()
+        {
+            Id = id,
+            Title = updateRequest.Title,
+            YearOfRelease = updateRequest.YearOfRelease,
+            Genres = updateRequest.Genres.ToList(),
+            Publisher = updateRequest.Publisher,
+        };
+    }
+
     /// <summary>
     /// Maps a Collection of games to a gamesresponse object.
     /// </summary>

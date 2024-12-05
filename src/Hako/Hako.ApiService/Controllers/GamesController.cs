@@ -55,4 +55,36 @@ public class GamesController : ControllerBase
 
         return Ok(response);
     }
+
+    [HttpPut(ApiEndpoints.Games.Update)]
+    public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateGameRequest updateRequest)
+    {
+        var game = updateRequest.MapToGame(id);
+
+        var updated = await _gameRepository.UpdateAsync(game);
+
+        if (!updated)
+        {
+            return NotFound();
+        }
+
+        var response = game.MapToResponse();
+
+        return Ok(response);
+    }
+
+    [HttpDelete(ApiEndpoints.Games.Delete)]
+    public async Task<IActionResult> Delete([FromRoute] Guid id)
+    {
+        var deleted = await _gameRepository.DeleteAsync(id);
+
+        if (!deleted)
+        {
+            return NotFound();
+        }
+
+        return Ok();
+
+    }
+
 }
