@@ -1,4 +1,5 @@
 ﻿@page "/games"
+@using Hako.Contracts.Requests
 @using Hako.Contracts.Responses
 @using Hako.Web.Services
 @rendermode InteractiveServer
@@ -6,17 +7,53 @@
 
 <h3>Games Overview</h3>
 
-<label>Name of the Game</label>
+<div class="container-xl mw-100">
+    <div class="row">
+        <div class="col">
+            <div class="d-flex flex-column">
+                <label>Title:</label>
+                <InputText @bind-Value="@Title"></InputText>
+                <label>Year of Release:</label>
+                <InputDate @bind-Value="@Date"></InputDate>
+                <label>Publisher:</label>
+                <InputText @bind-Value="@Publisher"></InputText>
+                <button @onclick="Create" class="btn btn-primary mt-4">Add</button>
+            </div>
 
-<InputText @bind-value="@GameName"></InputText>
+        </div>
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Publisher</th>
+                        <th scope="col">Year of release</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var response in GameResponses)
+                    {
+                        <tr>
+                            <td>@response.Title</td>
+                            <td>@response.Publisher</td>
+                            <td>@response.YearOfRelease</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 
-
-<button @onclick="ButtonClicked" class="btn btn-primary">Call Games API</button>
 @code {
     public List<GameResponse> GameResponses { get; set; } = new();
 
-    public string GameName { get; set; } = string.Empty;
+
+    public string Title { get; set; } = string.Empty;
+    public string Publisher { get; set; } = string.Empty;
+    public DateTime Date { get; set; } = DateTime.UtcNow;
+
 
     protected override async Task OnInitializedAsync()
     {
@@ -26,11 +63,27 @@
         {
             GameResponses = games.Items.ToList();
         }
-        
+
     }
 
-    public async void ButtonClicked()
+    public async Task Create()
     {
-        var games = await GamesService.GetGames();
+        var createRequest = new CreateGameRequest()
+        {
+            Title= Title,
+            YearOfRelease = Date.Year,
+            Publisher = Publisher
+        };
+
+        await GamesService.CreateGame(createRequest);
+
+        var updatedGameList = await GamesService.GetGames();
+
+        if (updatedGameList is not null)
+        {
+            GameResponses.Clear();
+            GameResponses = updatedGameList.Items.ToList();
+        }
+
     }
 }

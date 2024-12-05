@@ -1,4 +1,5 @@
-﻿using Hako.Contracts.Responses;
+﻿using Hako.Contracts.Requests;
+using Hako.Contracts.Responses;
 
 namespace Hako.Web.Services;
 
@@ -16,5 +17,10 @@ public class GamesService
         var result = await _httpClient.GetFromJsonAsync<GamesResponse>("/api/games");
 
         return result;
+    }
+
+    public async Task CreateGame(CreateGameRequest request)
+    {
+        var result = await _httpClient.PostAsJsonAsync<CreateGameRequest>("/api/games", request);
     }
 }
